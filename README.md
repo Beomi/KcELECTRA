@@ -108,7 +108,7 @@ PLM 학습을 위해서 전처리를 진행한 과정은 다음과 같습니다.
 5. 중복 제거
 
    중복적으로 쓰인 댓글을 제거하기 위해 완전히 일치하는 중복 댓글을 하나로 합쳤습니다.
-   
+
 6. `OOO` 제거
 
    네이버 댓글의 경우, 비속어는 자체 필터링을 통해 `OOO` 로 표시합니다. 이 부분을 공백으로 제거하였습니다.
@@ -146,7 +146,7 @@ def clean(x):
 - KcBERT 외 추가 데이터는 정리 후 공개 예정입니다.
 
 
-## Tokenizer Train
+## Tokenizer, Model Train
 
 Tokenizer는 Huggingface의 [Tokenizers](https://github.com/huggingface/tokenizers) 라이브러리를 통해 학습을 진행했습니다.
 
@@ -154,11 +154,22 @@ Tokenizer는 Huggingface의 [Tokenizers](https://github.com/huggingface/tokenize
 
 Tokenizer를 학습하는 것에는 전체 데이터를 통해 학습을 진행했고, 모델의 General Downstream task에 대응하기 위해 KoELECTRA에서 사용한 Vocab을 겹치지 않는 부분을 추가로 넣어주었습니다. (실제로 두 모델이 겹치는 부분은 약 5000토큰이었습니다.)
 
-TPU `v3-8` 을 이용해 약 1주일의 학습을 진행했고, 현재 Huggingface에 공개된 모델은 848k step을 학습한 모델 weight가 업로드 되어있습니다.
+TPU `v3-8` 을 이용해 약 10일 학습을 진행했고, 현재 Huggingface에 공개된 모델은 848k step을 학습한 모델 weight가 업로드 되어있습니다.
+
+(100k step별 Checkpoint를 통해 성능 평가를 진행하였습니다. 해당 부분은 `KcBERT-finetune` repo를 참고해주세요.)
 
 모델 학습 Loss는 Step에 따라 초기 100-200k 사이에 급격히 Loss가 줄어들다 학습 종료까지도 지속적으로 loss가 감소하는 것을 볼 수 있습니다.
 
 ![KcELECTRA-base Pretrain Loss](https://cdn.jsdelivr.net/gh/beomi/blog-img@master/2021/04/07/image-20210407201231133.png)
+
+### KcELECTRA Pretrain Step별 Downstream task 성능 비교
+
+> 💡 아래 표는 전체 ckpt가 아닌 일부에 대해서만 테스트를 진행한 결과입니다.
+
+![KcELECTRA Pretrain Step별 Downstream task 성능 비교](https://cdn.jsdelivr.net/gh/beomi/blog-img@master/2021/04/07/image-20210407215557039.png)
+
+- 위와 같이 KcBERT-base, KcBERT-large 대비 **모든 데이터셋에 대해** KcELECTRA-base가 더 높은 성능을 보입니다.
+- KcELECTRA pretrain에서도 Train step이 늘어감에 따라 점진적으로 성능이 향상되는 것을 볼 수 있습니다.
 
 ## 인용표기/Citation
 
