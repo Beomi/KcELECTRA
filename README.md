@@ -46,12 +46,16 @@ KcBERT/KcELECTRA는 User genrated, Noisy text에 대해서 보다 잘 동작하�
 - `emoji ~= 0.6.0`
 - `soynlp ~= 0.0.493`
 
+### Default usage
+
 ```python
 from transformers import AutoTokenizer, AutoModel
   
 tokenizer = AutoTokenizer.from_pretrained("beomi/KcELECTRA-base")
 model = AutoModel.from_pretrained("beomi/KcELECTRA-base")
 ```
+
+> 💡 이전 KcBERT 관련 코드들에서 `AutoTokenizer`, `AutoModel` 을 사용한 경우 `.from_pretrained("beomi/kcbert-base")` 부분을 `.from_pretrained("beomi/KcELECTRA-base")` 로만 변경해주시면 즉시 사용이 가능합니다.
 
 ### Pretrain & Finetune Colab 링크 모음 
 
