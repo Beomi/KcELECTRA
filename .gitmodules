@@ -1,0 +1,3 @@
+[submodule "KcELECTRA-base"]
+	path = KcELECTRA-base
+	url = https://huggingface.co/beomi/KcELECTRA-base
