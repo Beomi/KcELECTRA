@@ -65,7 +65,7 @@ model = AutoModel.from_pretrained("beomi/KcELECTRA-base")
 
 - https://github.com/KLUE-benchmark/KLUE-ELECTRA Repo를 통한 Pretrain
 
-### Finetune Code
+#### Finetune Code
 
 - https://github.com/Beomi/KcBERT-finetune Repo를 통한 Finetune 및 스코어 비교
 
