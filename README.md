@@ -75,7 +75,10 @@ model = AutoModel.from_pretrained("beomi/KcELECTRA-base")
 
 #### Finetune Samples
 
-- TBD
+- NSMC with PyTorch-Lightning 1.3.0, GPU, Colab <a href="https://colab.research.google.com/drive/1Hh63kIBAiBw3Hho--BvfdUWLu-ysMFF0?usp=sharing">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 
 ## Train Data & Preprocessing
 
