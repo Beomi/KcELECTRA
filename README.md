@@ -183,7 +183,7 @@ TPU `v3-8` 을 이용해 약 10일 학습을 진행했고, 현재 Huggingface에
 KcELECTRA를 인용하실 때는 아래 양식을 통해 인용해주세요.
 
 ```
-@misc{lee2021,
+@misc{lee2021kcelectra,
   author = {Junbum Lee},
   title = {KcELECTRA: Korean comments ELECTRA},
   year = {2021},
