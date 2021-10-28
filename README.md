@@ -42,7 +42,7 @@ KcBERT/KcELECTRA는 User genrated, Noisy text에 대해서 보다 잘 동작하�
 ### Requirements
 
 - `pytorch ~= 1.8.0`
-- `transformers ~= 4.0.0`
+- `transformers ~= 4.11.3`
 - `emoji ~= 0.6.0`
 - `soynlp ~= 0.0.493`
 
