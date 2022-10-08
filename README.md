@@ -59,9 +59,14 @@ KcBERT/KcELECTRA는 User genrated, Noisy text에 대해서 보다 잘 동작하�
 
 ```python
 from transformers import AutoTokenizer, AutoModel
-  
-tokenizer = AutoTokenizer.from_pretrained("beomi/KcELECTRA-base")
-model = AutoModel.from_pretrained("beomi/KcELECTRA-base")
+
+
+tokenizer = AutoTokenizer.from_pretrained("beomi/KcELECTRA-base-v2022")
+model = AutoModel.from_pretrained("beomi/KcELECTRA-base-v2022")
+
+# 구버전(v2021)을 사용하기 원하실 경우
+#tokenizer = AutoTokenizer.from_pretrained("beomi/KcELECTRA-base")
+#model = AutoModel.from_pretrained("beomi/KcELECTRA-base")
 ```
 
 > 💡 이전 KcBERT 관련 코드들에서 `AutoTokenizer`, `AutoModel` 을 사용한 경우 `.from_pretrained("beomi/kcbert-base")` 부분을 `.from_pretrained("beomi/KcELECTRA-base")` 로만 변경해주시면 즉시 사용이 가능합니다.
